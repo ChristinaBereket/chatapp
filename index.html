@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-comments"></i> Real-Time Chat</h1>
+            <div class="connection-status" id="connectionStatus">
+                <i class="fas fa-circle"></i>
+                <span>Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Join Form -->
+        <div class="join-container" id="joinContainer">
+            <div class="join-form">
+                <h2>Join the Chat</h2>
+                <form id="joinForm">
+                    <div class="form-group">
+                        <label for="username">Your Name</label>
+                        <input type="text" id="username" placeholder="Enter your name..." required maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="room">Room</label>
+                        <select id="room" required>
+                            <option value="general">General</option>
+                            <option value="tech">Tech Talk</option>
+                            <option value="random">Random</option>
+                            <option value="help">Help & Support</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="join-btn">
+                        <i class="fas fa-sign-in-alt"></i> Join Chat
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-container" id="chatContainer" style="display: none;">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="room-info">
+                    <h3 id="roomName">General</h3>
+                    <span id="userCount">0 users online</span>
+                </div>
+                <button class="leave-btn" id="leaveBtn">
+                    <i class="fas fa-sign-out-alt"></i> Leave
+                </button>
+            </div>
+
+            <!-- Users List -->
+            <div class="users-sidebar">
+                <h4><i class="fas fa-users"></i> Online Users</h4>
+                <div class="users-list" id="usersList">
+                    <!-- Users will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="messages-container">
+                <div class="messages" id="messages">
+                    <!-- Messages will be populated by JavaScript -->
+                </div>
+                
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">Someone is typing...</span>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-container">
+                <form id="messageForm">
+                    <div class="input-group">
+                        <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500" autocomplete="off">
+                        <button type="submit" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tech Stack Info -->
+        <div class="tech-info">
+            <h3>🚀 Full-Stack Chat App</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Socket.IO</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <span>Express</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.IO Client -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
